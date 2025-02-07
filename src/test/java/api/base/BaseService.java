@@ -5,6 +5,7 @@ import static io.restassured.RestAssured.*;
 import java.util.HashMap;
 import java.util.Map;
 
+import api.models.request.AccountRequest;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
@@ -24,7 +25,7 @@ public class BaseService {
 		return requestSpecification.headers(headers).get(endpoint);
 	}
 	
-	protected Response postRequest(String payload, String endpoint) {
+	protected Response postRequest(Object payload, String endpoint) {
 		Map<String, String> headers = new HashMap<String, String>();
 		headers.put("api-key", getAuthToken());
 		headers.put("Content-Type", "application/json");
