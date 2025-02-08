@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="API Automation">
-	<test name="Test">
+	<listeners>
+		<listener class-name="api.listeners.TestListener"></listener>
+	</listeners>
+	<test name="End-To-End Tests">
 		<classes>
 			<class name="api.tests.GenerateTokenTest" />
 			<class name="api.tests.AccountTest" />

@@ -5,7 +5,9 @@ import static io.restassured.RestAssured.*;
 import java.util.HashMap;
 import java.util.Map;
 
+import api.filters.LoggingFilter;
 import api.utilities.Utils;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
@@ -13,6 +15,10 @@ public class BaseService {
 
 	private static final String BASE_URL = "https://template.postman-echo.com/api/v1/";
 	protected RequestSpecification requestSpecification;
+	
+	static {
+		RestAssured.filters(new LoggingFilter());
+	}
 
 	public BaseService() {
 		this.requestSpecification = given().baseUri(BASE_URL);

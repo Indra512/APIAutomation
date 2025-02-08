@@ -8,13 +8,10 @@ import java.util.List;
 import org.testng.annotations.Test;
 
 import api.models.request.AccountRequest;
-import api.models.request.TransactionRequest;
 import api.models.response.AccountDetail;
 import api.models.response.AccountResponse;
 import api.models.response.AccountsResponse;
-import api.services.AccountClosureService;
 import api.services.AccountService;
-import api.services.TransactionService;
 import api.utilities.Utils;
 import io.restassured.response.Response;
 

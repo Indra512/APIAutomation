@@ -7,7 +7,7 @@ public class TransactionRequest {
 	private int amount;
 	private String currency;
 	
-	public TransactionRequest(int fromAccountId, int toAccountId, int amount, String currency) {
+	private TransactionRequest(int fromAccountId, int toAccountId, int amount, String currency) {
 		super();
 		this.fromAccountId = fromAccountId;
 		this.toAccountId = toAccountId;

@@ -19,4 +19,8 @@ public class AccountService extends BaseService {
 	public Response getAllAccounts() {
 		return getRequest(END_POINT);
 	}
+	
+	public Response deleteAccount(String accountId) {
+		return deleteRequest(END_POINT + "/" + accountId);
+	}
 }
