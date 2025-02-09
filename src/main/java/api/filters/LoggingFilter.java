@@ -3,6 +3,7 @@ package api.filters;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import api.reporting.ExtentReportManager;
 import io.restassured.filter.Filter;
 import io.restassured.filter.FilterContext;
 import io.restassured.response.Response;
@@ -23,15 +24,18 @@ public class LoggingFilter implements Filter {
 	}
 
 	public void logRequest(FilterableRequestSpecification requestSpec) {
-		logger.info("Base Url: " + requestSpec.getBaseUri());
-		logger.info("Request Headers: " + requestSpec.getHeaders());
-		if (requestSpec.getBody() != null)
-			logger.info("Request Payload: " + requestSpec.getBody());
+		logger.info("Request: {} {}", requestSpec.getMethod(), requestSpec.getURI());
+		logger.info("Headers: {}", requestSpec.getHeaders());
+		if (requestSpec.getBody() != null) {
+			logger.info("Body: {}", requestSpec.getBody().toString());
+		}
+		ExtentReportManager.logRequest(requestSpec);
 	}
 
 	public void logResponse(Response response) {
-		logger.info("Status Code: " + response.getStatusCode());
-		logger.info("Response Payload: " + response.getBody().asPrettyString());
-		logger.info("Response Time: " + response.getTime());
+		logger.info("Response Headers: {}", response.getHeaders());
+		logger.info("Response Status: {}", response.getStatusCode());
+		logger.info("Response Body: {}",  response.getBody().asString());
+		ExtentReportManager.logResponse(response);
 	}
 }
