@@ -36,3 +36,4 @@ build/
 
 ### Test Output ###
 test-output/
+logs/
