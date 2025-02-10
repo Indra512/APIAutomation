@@ -22,8 +22,7 @@ public class ExtentReportManager {
 		if (extent == null) {
 			String fileName = generateReportFileName();
 
-//			ExtentSparkReporter sparkReporter = new ExtentSparkReporter("test-output/reports/" + fileName);
-			ExtentSparkReporter sparkReporter = new ExtentSparkReporter("test-output/reports/test.html");
+			ExtentSparkReporter sparkReporter = new ExtentSparkReporter("test-output/reports/" + fileName);
 			sparkReporter.config().setTheme(Theme.DARK);
 			sparkReporter.config().setDocumentTitle("API Test Report");
 			sparkReporter.config().setReportName("REST API Test Results");
