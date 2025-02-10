@@ -21,3 +21,12 @@ jobs:
         cache: maven
     - name: API Tests
       run: mvn clean test -Dsuite=suite
+      
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v4.6.0
+      with:
+        name: Logs
+        path: logs/
+
+
+
