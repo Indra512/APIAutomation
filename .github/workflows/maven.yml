@@ -43,5 +43,11 @@ jobs:
         path: target/surefire-reports/junitreports/TEST-*.xml
         reporter: java-junit
 
+    - name: Deploy pages
+      uses: JamesIves/github-pages-deploy-action@4.1.5
+      with:
+        branch: gh-pages
+        folder: ./test-output/reports/
+
 
 
